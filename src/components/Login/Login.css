@@ -1,0 +1,32 @@
+.login{
+    padding: 30px;
+    height: 100vh;
+    background-color: aliceblue;
+}
+
+.login-heading{
+    text-align: center;
+}
+
+.login-subheading{
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.login-bars{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.login-bar{
+    width: 50%;
+    border: 1px solid brown;
+    padding: 50px;
+}
+
+.login-actions{
+    text-align: center;
+}
