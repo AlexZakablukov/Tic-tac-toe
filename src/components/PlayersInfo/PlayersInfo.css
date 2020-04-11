@@ -1,0 +1,14 @@
+.playersInfo{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid grey;
+}
+
+.playersInfo-score{
+    display: flex;
+    align-items: center;
+}
+
+.playersInfo-score p {
+    margin-right: 30px;
+}

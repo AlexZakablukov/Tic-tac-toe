@@ -1,18 +1,40 @@
 import React, {useState} from 'react';
 import './Game.css';
 
-import Player from "./models/Player";
-
 import Login from "./components/Login/Login";
+import Layout from "./components/Layout/Layout";
+import Title from "./components/Title/Title";
+import PlayersInfo from "./components/PlayersInfo/PlayersInfo";
 
 const Game = () => {
-  const [player1, setPlayer1] = useState(new Player("Player1"));
-  const [player2, setPlayer2] = useState(new Player("Player2"));
+
+  const [players, setPlayers] = useState([
+    {
+      name: "player1",
+      winCount: 0,
+      loseCount: 0,
+      drawCount: 0
+    },
+    {
+      name: "player2",
+      winCount: 0,
+      loseCount: 0,
+      drawCount: 0
+    }
+  ]);
+
+  const onWin = (playerIndex) => {
+    const playersArray = [...players];
+    playersArray[playerIndex].winCount++;
+    setPlayers(playersArray)
+  };
 
   return (
-    <div className="Game">
-      Tic-tac-toe
-    </div>
+    <Layout>
+        <Title title="Tic-tac-toe"/>
+        <PlayersInfo players={players}/>
+
+    </Layout>
   );
 };
 
