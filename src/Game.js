@@ -6,6 +6,7 @@ import Layout from "./components/Layout/Layout";
 import Title from "./components/Title/Title";
 import PlayersInfo from "./components/PlayersInfo/PlayersInfo";
 import Board from "./components/Board/Board";
+import Actions from "./components/Actions/Actions";
 
 const Game = () => {
   const [players, setPlayers] = useState([
@@ -128,9 +129,7 @@ const Game = () => {
       <PlayersInfo players={players} />
       {renderMessage()}
       <Board board={board} onSquareClick={onSquareClick}/>
-      <button onClick={onRestartGame}>
-        restart
-      </button>
+      <Actions onRestartGame={onRestartGame}/>
     </Layout>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import "./PlayersInfo.css";
+import History from "../History/History";
 
 const PlayersInfo = ({ players }) => {
   return (
@@ -13,6 +14,10 @@ const PlayersInfo = ({ players }) => {
               <p>win: {lastScore.winCount}</p>
               <p>lose: {lastScore.loseCount}</p>
               <p>draw: {lastScore.drawCount}</p>
+            </div>
+            <div className="more">
+              <span>More</span>
+              <History playerScores={player.scores}/>
             </div>
           </div>
         );
