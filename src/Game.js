@@ -126,7 +126,6 @@ const Game = () => {
     <Layout>
       <Title title="Tic-tac-toe" />
       <PlayersInfo players={players} />
-      <p>currentPlayer: {currentPlayerIndex}</p>
       {renderMessage()}
       <Board board={board} onSquareClick={onSquareClick}/>
       <button onClick={onRestartGame}>
