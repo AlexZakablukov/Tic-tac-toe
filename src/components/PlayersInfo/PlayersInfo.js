@@ -1,21 +1,24 @@
-import React from 'react';
+import React from "react";
 import "./PlayersInfo.css";
 
-const PlayersInfo = ({players}) => {
+const PlayersInfo = ({ players }) => {
   return (
     <div className="playersInfo">
-      {players.map((player, index) => (
-        <div className="playersInfo-block" key={index}>
-          <h3 className="playersInfo-name">{player.name}</h3>
-          <div className="playersInfo-score">
-            <p>win: {player.winCount}</p>
-            <p>lose: {player.loseCount}</p>
-            <p>draw: {player.drawCount}</p>
+      {players.map((player, index) => {
+        const lastScore = player.scores[player.scores.length - 1];
+        return(
+          <div className="playersInfo-block" key={index}>
+            <h3 className="playersInfo-name">{player.name}</h3>
+            <div className="playersInfo-score">
+              <p>win: {lastScore.winCount}</p>
+              <p>lose: {lastScore.loseCount}</p>
+              <p>draw: {lastScore.drawCount}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
-  )
+  );
 };
 
-export default PlayersInfo
+export default PlayersInfo;

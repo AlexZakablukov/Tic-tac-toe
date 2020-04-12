@@ -11,16 +11,24 @@ const Game = () => {
   const [players, setPlayers] = useState([
     {
       name: "player1",
-      winCount: 0,
-      loseCount: 0,
-      drawCount: 0,
+      scores: [
+        {
+          winCount: 0,
+          loseCount: 0,
+          drawCount: 0,
+        }
+      ],
       sign: "X"
     },
     {
       name: "player2",
-      winCount: 0,
-      loseCount: 0,
-      drawCount: 0,
+      scores: [
+        {
+          winCount: 0,
+          loseCount: 0,
+          drawCount: 0,
+        }
+      ],
       sign: "O"
     }
   ]);
@@ -88,8 +96,11 @@ const Game = () => {
 
   const onPlayerChangeStatistic = (playerIndex, param) => {
     const playersArray = [...players];
-    playersArray[playerIndex][param]++;
-    setPlayers(playersArray);
+    const playerScores = playersArray[playerIndex].scores;
+    const newScore = {...playerScores[playerScores.length - 1]};
+    newScore[param]++;
+    playerScores.push(newScore);
+    setPlayers([...playersArray]);
   };
 
   const renderMessage = () => {
