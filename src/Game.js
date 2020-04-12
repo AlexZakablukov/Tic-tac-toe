@@ -129,13 +129,9 @@ const Game = () => {
 
   const renderMessage = () => {
     if(winner === null && step === 9){
-      return (
-        <p>Ничья</p>
-      )
+      return 'Ничья';
     } else if (winner !== null){
-      return(
-        <p>Выиграл {players[winner].name}</p>
-      )
+      return `Выиграл ${players[winner].name}`;
     }
   };
 
@@ -143,7 +139,7 @@ const Game = () => {
     <Layout>
       <Title title="Tic-tac-toe" />
       <PlayersInfo players={players} />
-      {renderMessage()}
+      <p className="message">{renderMessage()}</p>
       {!readyToStart ? (
         <Login players={players} onInputChange={onInputChange} onReadyGame={onReadyGame} errorMessage={errorMessage}/>
       ) : (

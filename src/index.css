@@ -15,3 +15,9 @@ code {
 * {
   box-sizing: border-box;
 }
+
+.message{
+  text-align: center;
+  color: green;
+  min-height: 25px;
+}
