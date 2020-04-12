@@ -6,6 +6,7 @@
     visibility: hidden;
     opacity: 0;
     transition: 0.2s ease-in-out;
+    background-color: #fff;
 }
 .history td{
     border: 1px solid grey;

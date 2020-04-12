@@ -13,3 +13,7 @@
 .playersInfo-score p {
     margin-right: 30px;
 }
+
+.playersInfo-name{
+    min-height: 25px;
+}

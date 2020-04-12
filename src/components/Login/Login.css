@@ -1,6 +1,5 @@
 .login{
     padding: 30px;
-    height: 100vh;
     background-color: aliceblue;
 }
 
@@ -23,10 +22,16 @@
 
 .login-bar{
     width: 50%;
-    border: 1px solid brown;
     padding: 50px;
+    text-align: center;
 }
 
 .login-actions{
+    text-align: center;
+}
+
+.error{
+    font-size: 14px;
+    color: red;
     text-align: center;
 }

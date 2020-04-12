@@ -34,6 +34,8 @@ const Game = () => {
     }
   ]);
 
+  const [readyToStart, setReadyToStart] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [step, setStep] = useState(0); // 0, 1, 2, 3...
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0); // 0, 1
   const nextPlayerIndex = (currentPlayerIndex + 1) % 2;
@@ -104,6 +106,27 @@ const Game = () => {
     setPlayers([...playersArray]);
   };
 
+  const onRestartGame = () => {
+    setBoard(defaultBoard);
+    setStep(0);
+    setWinner(null);
+    setCurrentPlayerIndex(0);
+  };
+
+  const onInputChange = (event, playerIndex) => {
+    const playersArray = [...players];
+    playersArray[playerIndex].name = event.target.value;
+    setPlayers(playersArray);
+  };
+
+  const onReadyGame = (event) => {
+    if(players[0].name.length >= 2 && players[1].name.length >=2){
+       setReadyToStart(true);
+    }else{
+      setErrorMessage("Player`s name have to consist at least two character")
+    }
+  };
+
   const renderMessage = () => {
     if(winner === null && step === 9){
       return (
@@ -116,20 +139,19 @@ const Game = () => {
     }
   };
 
-  const onRestartGame = () => {
-    setBoard(defaultBoard);
-    setStep(0);
-    setWinner(null);
-    setCurrentPlayerIndex(0);
-  };
-
   return (
     <Layout>
       <Title title="Tic-tac-toe" />
       <PlayersInfo players={players} />
       {renderMessage()}
-      <Board board={board} onSquareClick={onSquareClick}/>
-      <Actions onRestartGame={onRestartGame}/>
+      {!readyToStart ? (
+        <Login players={players} onInputChange={onInputChange} onReadyGame={onReadyGame} errorMessage={errorMessage}/>
+      ) : (
+        <>
+          <Board board={board} onSquareClick={onSquareClick}/>
+          <Actions onRestartGame={onRestartGame}/>
+        </>
+      )}
     </Layout>
   );
 };

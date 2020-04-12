@@ -15,7 +15,7 @@ const History = ({playerScores}) => {
       <tbody>
       {playerScores.map((score, index) => {
         return(
-          <tr>
+          <tr key={index}>
             <td>{index}</td>
             <td>{score.winCount}</td>
             <td>{score.drawCount}</td>

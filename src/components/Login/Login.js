@@ -1,41 +1,27 @@
 import React from "react";
 import "./Login.css";
 
-const Login = ({loginFormHandler}) => {
+const Login = ({players, onInputChange, onReadyGame, errorMessage}) => {
   return(
     <div className="login">
-      <h1 className="login-heading">
-        Welcome in Tic-tac-toe
-      </h1>
-      <p className="login-subheading">
+      <h2 className="login-subheading">
         Please enter your names
-      </p>
+      </h2>
+
       <div className="login-bars">
-        <div className="login-bar">
-          <p className="name">
-            Player1
-          </p>
-          <form onSubmit={loginFormHandler}>
-            <input type="text" name="name"/>
-            <button>
-              Submit
-            </button>
-          </form>
-        </div>
-        <div className="login-bar">
-          <p className="name">
-            Player2
-          </p>
-          <form onSubmit={loginFormHandler}>
-            <input type="text" name="name"/>
-            <button>
-              Submit
-            </button>
-          </form>
-        </div>
+        {players.map(( player, index )=>{
+          return(
+            <div className="login-bar" key={index}>
+              <input type="text" value={player.name} name="name" onChange={(event) => onInputChange(event, index)}/>
+            </div>
+          )
+        })}
       </div>
+      {errorMessage ? (
+        <p className="error">{errorMessage}</p>
+      ) : null}
       <div className="login-actions">
-        <button>
+        <button onClick={onReadyGame}>
           Start Game
         </button>
       </div>
