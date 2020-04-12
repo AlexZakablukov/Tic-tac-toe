@@ -1,12 +1,14 @@
 import React from "react";
 import './Actions.css';
 
-const Actions = ({onRestartGame}) => {
+const Actions = ({onRestartGame, renderMessage}) => {
   return (
     <div className="actions">
-      <button onClick={onRestartGame} className="btn">
-        Restart game
-      </button>
+      {renderMessage() ? (
+        <button onClick={onRestartGame} className="btn">
+          {renderMessage()}
+        </button>
+      ) : null}
     </div>
   )
 };

@@ -21,3 +21,12 @@ code {
   color: green;
   min-height: 25px;
 }
+
+.btn{
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid grey;
+  background: #fff;
+  color: black;
+  text-decoration: none;
+}
