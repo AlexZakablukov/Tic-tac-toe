@@ -1,0 +1,11 @@
+.board{
+    width: 300px;
+    height: 300px;
+    border: 1px solid red;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.board-row{
+    display: flex;
+}
